@@ -1,0 +1,21 @@
+{
+  "name": "Ramos Executive",
+  "short_name": "Ramos Exec",
+  "description": "Transfer Executivo VIP - Mobilidade com Elegância",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#06080B",
+  "theme_color": "#06080B",
+  "icons": [
+    {
+      "src": "IMG-20260726-WA0142.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "IMG-20260726-WA0142.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
