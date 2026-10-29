@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramos Executive | Mobilidade com Eleg&acirc;ncia</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FBF5E8',
+                            300: '#E8D49E',
+                            400: '#D8B868',
+                            500: '#C5A059',
+                            600: '#A48039',
+                            700: '#7E6023',
+                            800: '#5A4315',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FBF5E8 0%, #D8B868 45%, #C5A059 70%, #8C6A24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-btn {
+            background: linear-gradient(135deg, #E8D49E 0%, #C5A059 50%, #9E7A2E 100%);
+            box-shadow: 0 4px 20px rgba(197, 160, 89, 0.25);
+            transition: all 0.3s ease;
+        }
+        .gold-btn:hover {
+            box-shadow: 0 6px 25px rgba(197, 160, 89, 0.45);
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+        }
+        input, select, textarea {
+            color-scheme: dark;
+        }
+    </style>
+</head>
+<body class="bg-[#06080B] text-slate-200 font-sans antialiased selection:bg-gold-500 selection:text-black pb-24">
+
+    <!-- Header Fixo -->
+    <header class="border-b border-gold-500/20 bg-[#0A0D12]/90 backdrop-blur-md sticky top-0 z-40 px-4 py-3">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-full border border-gold-400/40 bg-gradient-to-br from-gold-500/20 to-black flex items-center justify-center p-1.5 shadow-inner">
+                    <svg viewBox="0 0 100 100" class="w-full h-full fill-none">
+                        <circle cx="50" cy="50" r="46" stroke="#D8B868" stroke-width="2.5" opacity="0.6"/>
+                        <path d="M 32 75 L 32 25 L 55 25 C 67 25 74 32 74 42 C 74 50 67 56 57 58 L 74 78" stroke="#E8D49E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 32 46 L 54 46" stroke="#E8D49E" stroke-width="6"/>
+                        <path d="M 28 75 C 38 65 42 50 48 40" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="3,3"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif font-bold tracking-[0.25em] text-sm text-slate-100 block">RAMOS</span>
+                    <span class="text-[9px] uppercase tracking-[0.3em] text-gold-400 font-medium block">Executive</span>
+                </div>
+            </div>
+            <a href="#agendamento" class="text-xs uppercase tracking-wider font-semibold py-2 px-3.5 rounded bg-gold-500/15 border border-gold-400/40 text-gold-300 hover:bg-gold-500 hover:text-black transition duration-200">
+                Agendar
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Apresentacao -->
+        <section class="text-center py-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-4">
+                <i class="fa-solid fa-star text-gold-400 text-[10px]"></i>
+                <span class="text-[11px] font-medium tracking-[0.2em] uppercase text-gold-300">MOBILIDADE COM ELEG&Acirc;NCIA</span>
+                <i class="fa-solid fa-star text-gold-400 text-[10px]"></i>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-serif font-bold tracking-tight text-slate-100 mb-3">
+                TRANSFER EXECUTIVO VIP
+            </h1>
+            <p class="text-sm md:text-base text-slate-400 max-w-xl mx-auto font-light leading-relaxed">
+                Pontualidade absoluta, ve&iacute;culos selecionados e atendimento exclusivo para aeroportos, hot&eacute;is e viagens corporativas.
+            </p>
+        </section>
+
+        <!-- Diferenciais -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-[#0B0F15] flex flex-col items-center text-center">
+                <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400 mb-2">
+                    <i class="fa-solid fa-plane-departure text-lg"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-slate-200">Monitoramento de Voo</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Ajuste autom&aacute;tico para atrasos</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-[#0B0F15] flex flex-col items-center text-center">
+                <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400 mb-2">
+                    <i class="fa-regular fa-clock text-lg"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-slate-200">Pontualidade Brit&acirc;nica</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Posicionamento antecipado</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-[#0B0F15] flex flex-col items-center text-center">
+                <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400 mb-2">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-slate-200">Seguran&ccedil;a &amp; Conforto</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Ve&iacute;culo revisado e higienizado</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-[#0B0F15] flex flex-col items-center text-center">
+                <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400 mb-2">
+                    <i class="fa-solid fa-file-invoice-dollar text-lg"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-slate-200">Faturamento PJ</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Recibo e nota para empresas</p>
+            </div>
+        </div>
+
+        <!-- Formulario -->
+        <section id="agendamento" class="mt-8 rounded-2xl border border-gold-500/30 bg-[#0C1017] p-5 md:p-8 shadow-2xl relative overflow-hidden">
+            <div class="mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-xs"></i> Solicita&ccedil;&atilde;o Imediata
+                </span>
+                <h2 class="text-xl md:text-2xl font-serif font-bold text-white mt-1">Reserve o seu Transfer</h2>
+                <p class="text-xs text-slate-400">Preencha os detalhes da viagem para receber a confirma&ccedil;&atilde;o direta.</p>
+            </div>
+
+            <form id="transferForm" onsubmit="enviarWhatsApp(event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Nome do Passageiro *</label>
+                        <input type="text" id="nome" required placeholder="Ex: Dr. Roberto Martins" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Contato Telef&ocirc;nico / WhatsApp *</label>
+                        <input type="tel" id="telefone" required placeholder="Ex: (31) 98888-0000" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Data *</label>
+                        <input type="date" id="data" required class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Hor&aacute;rio Previsto *</label>
+                        <input type="time" id="hora" required class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Local de Partida (Origem) *</label>
+                    <input type="text" id="origem" required placeholder="Ex: Aeroporto Internacional de Confins (CNF)" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                    <div class="flex flex-wrap gap-1.5 mt-2">
+                        <button type="button" onclick="setOrigem('Aeroporto de Confins (CNF)')" class="text-[11px] bg-slate-800/80 hover:bg-gold-500/20 text-slate-300 border border-slate-700 rounded px-2 py-0.5 transition">Aeroporto Confins</button>
+                        <button type="button" onclick="setOrigem('Aeroporto da Pampulha (PLU)')" class="text-[11px] bg-slate-800/80 hover:bg-gold-500/20 text-slate-300 border border-slate-700 rounded px-2 py-0.5 transition">Pampulha</button>
+                        <button type="button" onclick="setOrigem('Hotel Fasano BH')" class="text-[11px] bg-slate-800/80 hover:bg-gold-500/20 text-slate-300 border border-slate-700 rounded px-2 py-0.5 transition">Hotel Fasano</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Destino *</label>
+                    <input type="text" id="destino" required placeholder="Ex: Savassi, Belo Horizonte ou Hotel Fasano" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">N.&ordm; do Voo (Opcional)</label>
+                        <input type="text" id="voo" placeholder="Ex: Latam 3421" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Passageiros</label>
+                        <select id="passageiros" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                            <option value="1 Passageiro">1 Passageiro</option>
+                            <option value="2 Passageiros">2 Passageiros</option>
+                            <option value="3 Passageiros">3 Passageiros</option>
+                            <option value="4 Passageiros">4 Passageiros</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Bagagens</label>
+                        <select id="bagagens" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                            <option value="Apenas bagagem de mao">Mala de bordo</option>
+                            <option value="1 a 2 malas grandes">1 a 2 malas grandes</option>
+                            <option value="3 ou mais malas">3 ou mais malas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Observa&ccedil;&otilde;es Adicionais</label>
+                    <textarea id="observacoes" rows="2" placeholder="Ex: Faturamento para empresa, cadeirinha, prefer&ecirc;ncias..." class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2 text-sm focus:border-gold-400 focus:outline-none transition"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 px-4 rounded-xl gold-btn text-black font-semibold uppercase tracking-wider text-sm flex items-center justify-center gap-2 mt-4 cursor-pointer">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Solicitar Agendamento via WhatsApp</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Rodape -->
+        <footer class="mt-12 text-center py-6 border-t border-slate-900 text-xs text-slate-500">
+            <p class="font-serif tracking-widest uppercase text-slate-400 mb-1">Ramos Executive</p>
+            <p>MOBILIDADE COM ELEG&Acirc;NCIA</p>
+            <p class="mt-2 text-[11px] text-slate-600">Atendimento Privado &amp; Corporativo &bull; Belo Horizonte e Regi&atilde;o</p>
+        </footer>
+    </main>
+
+    <script>
+        function setOrigem(local) {
+            document.getElementById('origem').value = local;
+        }
+
+        function enviarWhatsApp(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const data = document.getElementById('data').value;
+            const hora = document.getElementById('hora').value;
+            const origem = document.getElementById('origem').value.trim();
+            const destino = document.getElementById('destino').value.trim();
+            const voo = document.getElementById('voo').value.trim() || 'Nao informado';
+            const passageiros = document.getElementById('passageiros').value;
+            const bagagens = document.getElementById('bagagens').value;
+            const observacoes = document.getElementById('observacoes').value.trim() || 'Nenhuma';
+
+            let dataFormatada = data;
+            if (data.includes('-')) {
+                const partes = data.split('-');
+                dataFormatada = `${partes[2]}/${partes[1]}/${partes[0]}`;
+            }
+
+            const mensagem = 
+`✦ *SOLICITACAO DE TRANSFER — RAMOS EXECUTIVE* ✦
+_Mobilidade com Elegancia_
+
+👤 *Passageiro:* ${nome}
+📱 *Contato:* ${telefone}
+📅 *Data:* ${dataFormatada}
+⏰ *Horario:* ${hora}
+
+📍 *Origem:* ${origem}
+🏁 *Destino:* ${destino}
+✈️ *Voo:* ${voo}
+👥 *Passageiros:* ${passageiros}
+🧳 *Bagagem:* ${bagagens}
+
+💬 *Observacoes:* ${observacoes}
+
+_Aguardo a confirmacao e orcamento._`;
+
+            const textoCodificado = encodeURIComponent(mensagem);
+            const numeroDestino = '5531971121912';
+            const linkWhatsApp = `https://wa.me/${numeroDestino}?text=${textoCodificado}`;
+
+            window.open(linkWhatsApp, '_blank');
+        }
+    </script>
+</body>
+  </html>
+  
