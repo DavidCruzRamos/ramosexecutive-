@@ -185,18 +185,13 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Local de Partida (Origem) *</label>
-                    <input type="text" id="origem" required maxlength="100" placeholder="Ex: Aeroporto Internacional de Confins (CNF)" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
-                    <div class="flex flex-wrap gap-1.5 mt-2">
-                        <button type="button" onclick="setOrigem('Aeroporto de Confins (CNF)')" class="text-[11px] bg-slate-800/80 hover:bg-gold-500/20 text-slate-300 border border-slate-700 rounded px-2 py-0.5 transition">Aeroporto Confins</button>
-                        <button type="button" onclick="setOrigem('Aeroporto da Pampulha (PLU)')" class="text-[11px] bg-slate-800/80 hover:bg-gold-500/20 text-slate-300 border border-slate-700 rounded px-2 py-0.5 transition">Pampulha</button>
-                        <button type="button" onclick="setOrigem('Hotel Fasano BH')" class="text-[11px] bg-slate-800/80 hover:bg-gold-500/20 text-slate-300 border border-slate-700 rounded px-2 py-0.5 transition">Hotel Fasano</button>
-                    </div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Local de Partida (Endereço Completo) *</label>
+                    <input type="text" id="origem" required maxlength="150" placeholder="Ex: Rua, número, bairro e cidade ou aeroporto" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Destino *</label>
-                    <input type="text" id="destino" required maxlength="100" placeholder="Ex: Savassi, Belo Horizonte ou Ouro Preto" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Destino (Endereço Completo) *</label>
+                    <input type="text" id="destino" required maxlength="150" placeholder="Ex: Rua, número, bairro e cidade ou aeroporto" class="w-full bg-[#131923] border border-slate-700/80 rounded-lg px-3.5 py-2.5 text-sm focus:border-gold-400 focus:outline-none transition">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -301,48 +296,52 @@
         // CONFIGURACAO OFICIAL DO WHATSAPP DA RAMOS EXECUTIVE
         const WHATSAPP_NUMERO = "5531971121912";
 
-        // Configurar link do botao flutuante com mensagem personalizada
         document.addEventListener('DOMContentLoaded', () => {
+            // Define data mínima como hoje
             const dataInput = document.getElementById('data');
             const hoje = new Date().toISOString().split('T')[0];
-            dataInput.min = hoje;
+            if (dataInput) {
+                dataInput.min = hoje;
+            }
 
-            const mensagemFlutuante = encodeURIComponent("Olá, David! Vim através do app da Ramos Executive e gostaria de solicitar um atendimento/orçamento personalizado.");
-            document.getElementById('btnWhatsappFlutuante').href = `https://wa.me/${WHATSAPP_NUMERO}?text=${mensagemFlutuante}`;
+            // Configura link do botão flutuante
+            const btnFloat = document.getElementById('btnWhatsappFlutuante');
+            const msgOla = encodeURIComponent("Olá! Gostaria de informações e cotação para transfer executivo.");
+            if (btnFloat) {
+                btnFloat.href = `https://wa.me/${WHATSAPP_NUMERO}?text=${msgOla}`;
+            }
         });
 
-        // Alternar exibicao do campo de troco
-        function toggleTroco(forma) {
-            const trocoContainer = document.getElementById('trocoContainer');
-            if (forma === 'Dinheiro em Espécie') {
-                trocoContainer.classList.remove('hidden');
-            } else {
-                trocoContainer.classList.add('hidden');
-                document.getElementById('troco').value = '';
-            }
-        }
-
-        // Mascara automatica de telefone
+        // Mascara para telefone brasileiro (DDD) 9XXXX-XXXX
         function mascaraTelefone(input) {
-            let valor = input.value.replace(/\D/g, '');
-            if (valor.length > 11) valor = valor.slice(0, 11);
+            let v = input.value.replace(/\D/g, "");
+            if (v.length > 11) v = v.substring(0, 11);
+            
+            if (v.length > 10) {
+                v = v.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+            } else if (v.length > 5) {
+                v = v.replace(/^(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+            } else if (v.length > 2) {
+                v = v.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
+            } else if (v.length > 0) {
+                v = v.replace(/^(\d*)/, "($1");
+            }
+            input.value = v;
+        }
 
-            if (valor.length > 6) {
-                input.value = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7)}`;
-            } else if (valor.length > 2) {
-                input.value = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
-            } else if (valor.length > 0) {
-                input.value = `(${valor}`;
+        // Exibe campo de troco se a forma de pagamento for dinheiro
+        function toggleTroco(formaPagamento) {
+            const container = document.getElementById('trocoContainer');
+            const trocoInput = document.getElementById('troco');
+            if (formaPagamento === 'Dinheiro em Espécie') {
+                container.classList.remove('hidden');
             } else {
-                input.value = '';
+                container.classList.add('hidden');
+                if (trocoInput) trocoInput.value = '';
             }
         }
 
-        function setOrigem(local) {
-            document.getElementById('origem').value = local;
-        }
-
-        // Envio estruturado do formulario
+        // Monta o texto detalhado e abre a conversa no WhatsApp
         function enviarWhatsApp(e) {
             e.preventDefault();
 
@@ -352,60 +351,45 @@
             const hora = document.getElementById('hora').value;
             const origem = document.getElementById('origem').value.trim();
             const destino = document.getElementById('destino').value.trim();
-            const voo = document.getElementById('voo').value.trim() || 'Não informado';
+            const voo = document.getElementById('voo').value.trim();
             const passageiros = document.getElementById('passageiros').value;
             const bagagens = document.getElementById('bagagens').value;
             const pagamento = document.getElementById('pagamento').value;
-            const troco = document.getElementById('troco').value.trim();
-            const observacoes = document.getElementById('observacoes').value.trim() || 'Nenhuma';
+            const troco = document.getElementById('troco') ? document.getElementById('troco').value.trim() : '';
+            const obs = document.getElementById('observacoes').value.trim();
 
-            // Validacao de data
-            const hoje = new Date().toISOString().split('T')[0];
-            if (data < hoje) {
-                alert('Por favor, selecione uma data válida (a partir de hoje).');
-                return;
-            }
-
-            // Validacao basica de telefone
-            const numerosTel = telefone.replace(/\D/g, '');
-            if (numerosTel.length < 10) {
-                alert('Por favor, informe um número de telefone com DDD válido.');
-                return;
-            }
-
+            // Formata data DD/MM/AAAA
             let dataFormatada = data;
             if (data.includes('-')) {
-                const partes = data.split('-');
-                dataFormatada = `${partes[2]}/${partes[1]}/${partes[0]}`;
+                const [ano, mes, dia] = data.split('-');
+                dataFormatada = `${dia}/${mes}/${ano}`;
             }
 
-            let infoPagamento = pagamento;
+            let msg = `*SOLICITAÇÃO DE AGENDAMENTO - RAMOS EXECUTIVE*\n\n`;
+            msg += `👤 *Passageiro:* ${nome}\n`;
+            msg += `📱 *Telefone:* ${telefone}\n`;
+            msg += `📅 *Data:* ${dataFormatada}\n`;
+            msg += `⏰ *Horário:* ${hora}\n`;
+            msg += `📍 *Origem:* ${origem}\n`;
+            msg += `🏁 *Destino:* ${destino}\n`;
+            
+            if (voo) {
+                msg += `✈️ *Voo:* ${voo}\n`;
+            }
+            
+            msg += `👥 *Passageiros:* ${passageiros}\n`;
+            msg += `🧳 *Bagagem:* ${bagagens}\n`;
+            msg += `💳 *Pagamento:* ${pagamento}\n`;
+
             if (pagamento === 'Dinheiro em Espécie' && troco) {
-                infoPagamento += ` (Troco: ${troco})`;
+                msg += `💵 *Troco informado:* ${troco}\n`;
             }
 
-            const mensagem = 
-`✦ *SOLICITAÇÃO DE TRANSFER — RAMOS EXECUTIVE* ✦
-_Mobilidade com Elegância_
+            if (obs) {
+                msg += `📝 *Observações:* ${obs}\n`;
+            }
 
-👤 *Passageiro:* ${nome}
-📞 *Contato:* ${telefone}
-📅 *Data:* ${dataFormatada}
-⏰ *Horário Previsto:* ${hora}
-
-📍 *Origem:* ${origem}
-🏁 *Destino:* ${destino}
-✈️ *Nº do Voo:* ${voo}
-
-👥 *Passageiros:* ${passageiros}
-🧳 *Bagagem:* ${bagagens}
-💳 *Pagamento:* ${infoPagamento}
-
-📝 *Observações:* ${observacoes}
-
-_Enviado através do WebApp Oficial da Ramos Executive_`;
-
-            const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
+            const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
         }
     </script>
