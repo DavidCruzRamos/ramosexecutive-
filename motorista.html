@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ramos Executive | Painel do Motorista</title>
   
-  <!-- Ícone oficial e suporte PWA -->
+  <!-- Manifesto PWA e Ícones Oficiais -->
+  <link rel="manifest" href="manifest-motorista.json">
   <link rel="icon" type="image/jpeg" href="IMG-20260726-WA0146.jpg">
   <link rel="shortcut icon" href="IMG-20260726-WA0146.jpg">
   <link rel="apple-touch-icon" href="IMG-20260726-WA0146.jpg">
+  <meta name="theme-color" content="#c5a059">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#c5a059">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -374,33 +376,6 @@
 
   <script>
     let tempTrip = null;
-
-    // Injeta automaticamente o manifesto de instalação nativo
-    (function criarManifestoDinamico() {
-      const manifest = {
-        name: "Ramos Executive - Motorista",
-        short_name: "Ramos Driver",
-        start_url: window.location.href,
-        display: "standalone",
-        background_color: "#08090b",
-        theme_color: "#c5a059",
-        icons: [
-          {
-            src: "IMG-20260726-WA0146.jpg",
-            sizes: "192x192 512x512",
-            type: "image/jpeg",
-            purpose: "any maskable"
-          }
-        ]
-      };
-      const stringManifest = JSON.stringify(manifest);
-      const blob = new Blob([stringManifest], {type: 'application/json'});
-      const manifestURL = URL.createObjectURL(blob);
-      const linkTag = document.createElement('link');
-      linkTag.rel = 'manifest';
-      linkTag.href = manifestURL;
-      document.head.appendChild(linkTag);
-    })();
 
     function carregarExemplo() {
       document.getElementById('rawMessage').value = `✦ *SOLICITACAO DE TRANSFER — RAMOS EXECUTIVE* ✦
